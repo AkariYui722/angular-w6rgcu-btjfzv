@@ -1,0 +1,6 @@
+<p>Shipping Prices</p>
+<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <!-- async管道 從數據流中返回最新值 在所屬組件的生命期內持續返回 銷毀該組件時自動停止 -->
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>

@@ -1,0 +1,27 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <h3>
+    <!--如果不加[]，那麼title就是整一句沒有任何動態轉換-->
+    <a
+      [title]="product.name + ' detail'"
+      [routerLink]="['/product', product.id]"
+    >
+      {{ product.name }}
+    </a>
+
+    <p *ngIf="product.description">Description: {{ product.description }}</p>
+
+    <button type="button" (click)="share()">Share</button>
+
+    <app-product-alerts
+      [product]="product"
+      (notify)="onNotify()"
+    ></app-product-alerts>
+  </h3>
+</div>
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
